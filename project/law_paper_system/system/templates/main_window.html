@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+{% block content %}
+
+<div class="content pure-u-1 pure-u-md-3-4">
+    <form class="pure-form" method="GET" action="search">
+            <fieldset>
+                <h1 class="post-title">搜索文书</h1>
+                <input class="pure-input-3-4" type="search" name='q' placeholder="输入关键词">  
+                <button type="submit" class="pure-button pure-button--group">搜索</button>
+                <button class="pure-button pure-button--hover" style="float: right;"><a href="{% url 'paper_add' %}">上传文书</a></button>
+            </fieldset>
+    </form>
+    <br><br>
+    <div class="brand-title">示例:</div>
+    <div class="posts">
+            <h1 class="content-subhead">文书序号:{{paper.0}}</h1>
+            <section class="post">
+                <div class="pure-u-md-11-12">
+                <header class="post-header">
+                    <div><h2>标题: {{paper.2}}</h2></div>
+                    <p class="post-meta">
+                        <a class="post-category post-category-design">时间:</a> <a class="post-category post-category-pure">文书性质:</a>
+                    </p>
+                </header>
+                </div>
+    
+                <div class="post-description">
+                    {% for i in paper.10 %}
+                    <p>{{i}}</p>
+                    {% endfor %}
+                </div>
+                <button class="pure-button" style="float: right;"><a href="{% url 'paper_detail' paper_id=paper.0 %}">文书详情</a></button>
+            </section>
+    </div>
+    <br><br>
+    <div class="posts">
+            <h1 class="content-subhead">关于</h1>
+            <section class="post">
+                    <div class="post-description">
+                        <p>
+                            <h3>A simple legal instrument database system for database course.</h3>
+                            <h3>Source of data:<a href="https://wenshu.court.gov.cn/"> 中国裁判文书网.</a></h3>
+                        </p>
+                    </div>
+            </section>
+    </div>
+    <div class="footer">
+        <a>By ZYC ZQH</a>
+    </div>
+    
+</div>
+
+{% endblock %}

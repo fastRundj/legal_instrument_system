@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load staticfiles %}
+
+<div class="content pure-u-1 pure-u-md-3-4">
+    <div class="posts">
+        <h1 class="content-subhead">文书序号:{{paper.0}}</h1>
+        <section class="post">
+            <div class="pure-u-4-5">
+            <header class="post-header">
+                    <div><h2>标题: {{paper.2}}</h2></div>
+                <p class="post-meta">
+                    <a class="post-category post-category-design">时间: {{paper.6}}</a> <a class="post-category post-category-pure">文书性质: {{paper.9}}</a>
+                </p>
+            </header>
+            </div>
+
+            <div class="post-description">
+                {% for i in paper.10 %}
+                <p>{{i}}</p>
+                {% endfor %}
+            </div>
+        </section>
+    </div>
+</div>
+{% endblock %}
